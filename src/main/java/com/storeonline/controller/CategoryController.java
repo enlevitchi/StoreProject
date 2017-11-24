@@ -1,4 +1,4 @@
-package com.storeonline;
+package com.storeonline.controller;
 
 import com.storeonline.entity.Category;
 import com.storeonline.service.CategoryService;
@@ -21,7 +21,7 @@ public class CategoryController {
 
     @RequestMapping(value = "/")
     public String index() {
-        return "index";
+        return "category";
     }
 
     @RequestMapping(value = "/category", method = RequestMethod.GET)

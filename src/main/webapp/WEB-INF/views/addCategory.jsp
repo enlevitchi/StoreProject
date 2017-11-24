@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Add Category</h1>
-<form action="/category/add" method="post">
+<form method="post">
     Category Name : <input type="text" name="Category Name"/><br/>
     Category Description : <input type="text" name="Category Description"/><br/>
 

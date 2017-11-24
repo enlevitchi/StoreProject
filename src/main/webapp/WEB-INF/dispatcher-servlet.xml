@@ -16,7 +16,8 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.storeonline"/>
     <tx:annotation-driven/>
-<jpa:repositories base-package="com.storeonline.repository"/>
+
+    <jpa:repositories base-package="com.storeonline.repository"/>
     <mvc:resources mapping="/resources/**" location="WEB-INF/resources"/>
 
     <!-- Resolves views selected for rendering by @Controllers to .jsp resources
@@ -49,38 +50,12 @@
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL81Dialect</prop>
                 <prop key="hibernate.show_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">validate</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>
     <bean id="persistenceExceptionTranslationPostProcessor"
           class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-
-    <!--<bean id="categoryServ" class="com.storeonline.service.CategoryServ"/>-->
-
-
-    <!--Hibernate 4 SessionFactory Bean definition -->
-    <!--<beans:bean id="sessionFactory"-->
-    <!--class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">-->
-    <!--<beans:property name="dataSource" ref="dataSource" />-->
-    <!--<beans:property name="annotatedClasses">-->
-    <!--<beans:list>-->
-    <!--<beans:value>com.storeonline.entity.Category</beans:value>-->
-    <!--</beans:list>-->
-    <!--</beans:property>-->
-    <!--<beans:property name="hibernateProperties">-->
-    <!--<beans:props>-->
-    <!--<beans:prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL81Dialect</beans:prop>-->
-    <!--<beans:prop key="hibernate.show_sql">false</beans:prop>-->
-    <!--<beans:prop key="hibernate.hbm2ddl.auto">create-drop</beans:prop>-->
-    <!--<beans:prop key="debug">false</beans:prop>-->
-    <!--</beans:props>-->
-    <!--</beans:property>-->
-    <!--</beans:bean>-->
-
-    <!--<tx:annotation-driven/>    <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">-->
-    <!--<beans:property name="sessionFactory" ref="sessionFactory" />-->
-    <!--</beans:bean>-->
 
 
 </beans>
