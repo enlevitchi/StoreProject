@@ -11,13 +11,18 @@
 <html>
 <head>
     <title>Category</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/WEB-INF/css/style.css">
 
 </head>
 <body>
-<table>
+<header>
+    <button href="/category" class="btn btn-default">Home Category</button>
+
+</header>
+
+<table class="table">
     <thead>
     <tr>
         <th>id</th>
@@ -30,21 +35,14 @@
     <tbody>
     <c:forEach items="${listCategory}" var="category">
         <tr>
-            <td>${category.getcategoryId()}</td>
-            <td>${category.categoryName}</td>
-            <td>${category.description}</td>
+            <td>${category.getcategoryid()}</td>
+            <td>${category.getcategoryname()}</td>
+            <td>${category.getdescription()}</td>
         </tr>
     </c:forEach>
     </tbody>
 </table>
 
-    <table>
-<tr>
-    <td>${category.getcategoryId()}</td>
-    <td>${category.categoryName}</td>
-    <td>${category.description}</td>
-</tr>
-    </table>
 
 <a href="/category/add">Add Category</a>
 

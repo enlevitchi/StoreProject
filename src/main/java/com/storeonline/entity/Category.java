@@ -1,6 +1,8 @@
 package com.storeonline.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by elevitchi on 6/6/2017.
@@ -16,74 +18,47 @@ public class Category {
     private Long categoryId;
 
     @Column(name="categoryname")
-    private String CategoryName;
+    private String categoryname;
 
     @Column(name="description")
-    private String Description;
+    private String description;
 
-    protected Category(){
+    @OneToMany(mappedBy ="category")
+    private List<Product> products;
+
+    public Category(){
         // hibernate only
     }
 
-    public Category(String categoryName, String description) {
-        CategoryName = categoryName;
-        Description = description;
-    }
-
-    public String getCategoryName() {
-        return CategoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        CategoryName = categoryName;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
-
-    public Long getcategoryId() {
-
+    public Long getcategoryid() {
         return categoryId;
     }
 
-    public void setcategoryId(Long categoryId) {
+    public void setcategoryid(Long categoryId) {
         this.categoryId = categoryId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Category category = (Category) o;
-
-        if (categoryId != null ? !categoryId.equals(category.categoryId) : category.categoryId != null) return false;
-        if (CategoryName != null ? !CategoryName.equals(category.CategoryName) : category.CategoryName != null)
-            return false;
-        return Description != null ? Description.equals(category.Description) : category.Description == null;
-
+    public String getcategoryname() {
+        return categoryname;
     }
 
-    @Override
-    public int hashCode() {
-        int result = categoryId != null ? categoryId.hashCode() : 0;
-        result = 31 * result + (CategoryName != null ? CategoryName.hashCode() : 0);
-        result = 31 * result + (Description != null ? Description.hashCode() : 0);
-        return result;
+    public void setcategoryname(String categoryName) {
+        this.categoryname = categoryName;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "categoryId=" + categoryId +
-                ", CategoryName='" + CategoryName + '\'' +
-                ", Description='" + Description + '\'' +
-                '}';
+    public String getdescription() {
+        return description;
     }
 
+    public void setdescription(String description) {
+        this.description = description;
+    }
+
+    public List<Product> getproducts() {
+        return products;
+    }
+
+    public void setproducts(List<Product> products) {
+        this.products = products;
+    }
 }

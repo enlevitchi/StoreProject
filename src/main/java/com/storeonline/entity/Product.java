@@ -13,8 +13,20 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
 
+    @ManyToOne
+    @JoinColumn(name ="categoryId")
+    private Category category;
+
     @Column(name="productName")
     private String productName;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     @Column(name="productDescription")
     private String productDescription;
@@ -24,6 +36,10 @@ public class Product {
 
     @Column(name="quantity")
     private Long quantity;
+
+
+
+
 
     public Long getProductId() {
         return productId;

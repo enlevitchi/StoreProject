@@ -19,6 +19,11 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @ModelAttribute("category")
+    public Category construct(){
+        return new Category();
+    }
+
     @RequestMapping(value = "/")
     public String index() {
         return "category";
@@ -37,14 +42,17 @@ public class CategoryController {
        }
     @RequestMapping(value="/category/add", method = RequestMethod.GET)
     public String addCategoryForm(){
+
         return "addCategory";
     }
 
     @RequestMapping(value="/category/add", method = RequestMethod.POST)
-    public String addCategory(@ModelAttribute Category category){
+    public String addCategory(@ModelAttribute("category") Category category){
         categoryService.save(category);
         return "redirect:/category";
     }
+
+
 
 
 
