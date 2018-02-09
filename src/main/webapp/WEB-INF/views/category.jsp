@@ -18,18 +18,19 @@
 </head>
 <body>
 <header>
-    <button href="/category" class="btn btn-default">Home Category</button>
 
 </header>
 
-<table class="table">
+
+<div class="container">
+<table class="table table-hover">
     <thead>
     <tr>
         <th>id</th>
-        <th>category</th>
-        <th>description</th>
-        <th>action</th>
-
+        <th>Category</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
     </tr>
     </thead>
     <tbody>
@@ -38,10 +39,16 @@
             <td>${category.getcategoryid()}</td>
             <td>${category.getcategoryname()}</td>
             <td>${category.getdescription()}</td>
+            <td><a href="<c:url value='/edit/${category.getcategoryid()}'/>">Edit</a></td>
+            <td><a href="<c:url value='/delete/${category.getcategoryid()}'/>">Delete</a></td>
+
+
+
         </tr>
     </c:forEach>
     </tbody>
 </table>
+</div>
 
 
 <a href="/category/add">Add Category</a>

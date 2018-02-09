@@ -14,4 +14,8 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends BaseRepository<Category, Long> {
 
+    String update(@Param("id")Long id);
+
+
+
 }

@@ -42,7 +42,6 @@ public class CategoryController {
        }
     @RequestMapping(value="/category/add", method = RequestMethod.GET)
     public String addCategoryForm(){
-
         return "addCategory";
     }
 
@@ -51,6 +50,23 @@ public class CategoryController {
         categoryService.save(category);
         return "redirect:/category";
     }
+
+    @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+    public String deleteCategory(@PathVariable("id") long id){
+        Category category=categoryService.findCategory(id);
+        categoryService.delete(category);
+        return "redirect:/category";
+    }
+
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editCategory(@PathVariable("id") long id, @ModelAttribute("category") Category category){
+        Category oldCategory=categoryService.findCategory(id);
+        oldCategory.setcategoryname(category.getcategoryname());
+        oldCategory.setdescription(category.getdescription());
+        categoryService.edit(oldCategory);
+        return "redirect:/category";
+    }
+
 
 
 

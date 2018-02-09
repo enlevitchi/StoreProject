@@ -85,31 +85,5 @@ public class Product {
         //hibernate only
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Product product = (Product) o;
-
-        if (productId != null ? !productId.equals(product.productId) : product.productId != null) return false;
-        if (productName != null ? !productName.equals(product.productName) : product.productName != null) return false;
-        if (productDescription != null ? !productDescription.equals(product.productDescription) : product.productDescription != null)
-            return false;
-        if (productColor != null ? !productColor.equals(product.productColor) : product.productColor != null)
-            return false;
-        return quantity != null ? quantity.equals(product.quantity) : product.quantity == null;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = productId != null ? productId.hashCode() : 0;
-        result = 31 * result + (productName != null ? productName.hashCode() : 0);
-        result = 31 * result + (productDescription != null ? productDescription.hashCode() : 0);
-        result = 31 * result + (productColor != null ? productColor.hashCode() : 0);
-        result = 31 * result + (quantity != null ? quantity.hashCode() : 0);
-        return result;
-    }
 
 }
